@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Rutas CBA</title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+  <script type="text/javascript" src="gmaps.js"></script>
+  <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.3.0/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="estilo.css" />
+  <script type="text/javascript">
+      var map;
+      var a = new google.maps.LatLng(-17.40238604357475, -66.1533673595128);
+      var b = new google.maps.LatLng(-17.402217120548645, -66.15539510952806);
+      var c = new google.maps.LatLng(-17.40137772122422, -66.15530948973657);
+      var d = new google.maps.LatLng(-17.40145962369305, -66.15334074831964);
+      var e = new google.maps.LatLng(-17.387666842413207, -66.1554320148025);
+      var f = new google.maps.LatLng(-17.3622911619125, -66.18133860051091);
+      var g = new google.maps.LatLng(-17.356145320694058, -66.177507207353931);
+
+    $(document).ready(function(){
+      map = new GMaps({
+        el: '#map',
+        lat: -17.39991887,
+        lng: -66.15580851,
+        styles: [
+            {
+                "featureType": "all",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "invert_lightness": true
+                    },
+                    {
+                        "saturation": 10
+                    },
+                    {
+                        "lightness": 30
+                    },
+                    {
+                        "gamma": 0.5
+                    },
+                    {
+                        "hue": "#435158"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.arterial",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "visibility": "simplified"
+                    }
+                ]
+            },
+            {
+                "featureType": "transit.station",
+                "elementType": "labels.text",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            }
+        ]
+      });
+      map.drawRoute({
+          origin: [-17.412032735804488, -66.15359002409735], 
+          destination: [-17.34604586986659, -66.17899201012557],
+          waypoints: [
+              { location: a, stopover: true },
+              { location: b, stopover: true },
+              { location: c, stopover: true },
+              { location: d, stopover: true },
+              { location: e, stopover: true },
+              { location: f, stopover: true },
+              { location: g, stopover: true }],
+          optimizeWaypoints: true,
+        travelMode: 'driving',
+        strokeColor: '#83D242',
+        strokeOpacity: 0.6,
+        strokeWeight: 6
+      });
+    });
+  </script>
+</head>
+<body>
+  <h1>Rutas CBA</h1>
+    <div class="row">
+        <div class="span11">
+            <div id="map"></div>
+        </div>
+    </div>
+   
+</body>
+</html>
